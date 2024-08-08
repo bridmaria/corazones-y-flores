@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.heart, .flower {
+    position: absolute;
+    background-size: cover;
+    opacity: 0;
+}
+
+.heart {
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, #ff4081, #ff80ab);
+    border-radius: 50% 50% 0 0;
+    transform: rotate(-45deg);
+    animation: float 5s infinite, grow 3s infinite;
+}
+
+.heart:before,
+.heart:after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, #ff4081, #ff80ab);
+    border-radius: 50%;
+    top: -10px;
+    left: 0;
+}
+
+.heart:before {
+    left: 10px;
+}
+
+.heart:after {
+    left: -10px;
+}
+
+.flower {
+    width: 30px;
+    height: 30px;
+    background-image: url(img/flor.png); /* Asegúrate de tener una imagen de flor en tu proyecto */
+    border-radius: 50%;
+    animation: float 5s infinite, bloom 4s infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(-50px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+}
+
+@keyframes grow {
+    0% {
+        transform: scale(0.5);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(0.5);
+    }
+}
+
+@keyframes bloom {
+    0% {
+        transform: scale(0.5);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.5);
+        opacity: 0.5;
+    }
+}
